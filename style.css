@@ -1,0 +1,10 @@
+.heading {
+    text-align: center;
+}
+.info {
+    display: none;
+}
+.visible {
+    display: block;
+    background-color: aliceblue;
+}
