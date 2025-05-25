@@ -1,6 +1,7 @@
-// document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
 let showing = true;
+
 window.dropdown = function() {
     let info = document.getElementById("instructions");
 
@@ -15,4 +16,16 @@ window.dropdown = function() {
         showing = true;
     }
 };
-//});
+
+function CellClick(cell) {
+    console.log("Cell clicked:", cell.dataset.index);
+    cell.classList.remove("cell");
+    cell.classList.add("clicked");
+}
+
+document.querySelector('.board').addEventListener('click', function (event) {
+    if (event.target.classList.contains('cell')) {
+        CellClick(event.target);
+    }
+});
+});

@@ -1,10 +1,45 @@
 .heading {
     text-align: center;
 }
+.openinfo{
+    text-align: center;
+}
 .info {
     display: none;
 }
 .visible {
     display: block;
     background-color: aliceblue;
+}
+.body {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px;
+    justify-content: center;
+  
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 3px;
+    width: fit-content;
+    height: fit-content;
+    border-style: solid;
+    padding: 3px;
+    background-color: black;
+}
+
+.cell {
+    background-color: white;
+}
+.clicked {
+    background-color: green;
 }

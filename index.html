@@ -4,15 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://epicureanusa.com/cdn/shop/files/X-Pieces_1194x.jpg?v=1714675871">
+    <title>Tic-Tac-Toe</title>
 </head>
 <body>
-    <h1 class="heading" id="header">Multi-Grid Tic Tac Toe</h1>
-    <h3 id="openinfo" onclick="dropdown()"><strong>How to Play -></strong></h3>
-    <div id="instructions" class="visible">
-    <p>Multi-Grid Tic Tac Toe is a lot like normal Tic Tac Toe, except for the fact that it spans across a board made up of 9 grids (each containing 9 spaces).</p>
-    <p>On each turn, the active player will make a single mark in one of the spaces on the board. The space that they have chosen (e.g top left) will denote the grid that the next player will place their mark in.</p>
-    <p>Each players objective is to win 3 grids such that they can form a diagonal, horizontal, or vertical line across the board with their symbol.</p>
+    <div class="body">
+        <h3 id="openinfo" class= "openinfo"onclick="dropdown()"><strong>How to Play </strong></h3>
+        <div id="instructions" class="visible">
+        <p>Ultimate Tic Tac Toe is a lot like normal Tic Tac Toe, except for the fact that it is ultimate. More specifically, it spans across a board made up of 9 grids (each containing 9 spaces).</p>
+        <p>On each turn, the active player will make a single mark in one of the spaces on the board. The space that they have chosen (e.g top left) will denote the grid that the next player will place their mark in.</p>
+        <p>Each players objective is to win 3 grids such that they can form a diagonal, horizontal, or vertical line across the board with their symbol.</p>
+        <p>(click heading to dismiss)</p>
+        </div>
+
+        <div class="board">
+            <div class="grid">
+                <div class="cell" data-index="00"></div>
+                <div class="cell" data-index="01"></div>
+                <div class="cell" data-index="02"></div>
+                <div class="cell" data-index="03"></div>
+                <div class="cell" data-index="04"></div>
+                <div class="cell" data-index="05"></div>
+                <div class="cell" data-index="06"></div>
+                <div class="cell" data-index="07"></div>
+                <div class="cell" data-index="08"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="10"></div>
+                <div class="cell" data-index="11"></div>
+                <div class="cell" data-index="12"></div>
+                <div class="cell" data-index="13"></div>
+                <div class="cell" data-index="14"></div>
+                <div class="cell" data-index="15"></div>
+                <div class="cell" data-index="16"></div>
+                <div class="cell" data-index="17"></div>
+                <div class="cell" data-index="18"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="20"></div>
+                <div class="cell" data-index="21"></div>
+                <div class="cell" data-index="22"></div>
+                <div class="cell" data-index="23"></div>
+                <div class="cell" data-index="24"></div>
+                <div class="cell" data-index="25"></div>
+                <div class="cell" data-index="26"></div>
+                <div class="cell" data-index="27"></div>
+                <div class="cell" data-index="28"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="30"></div>
+                <div class="cell" data-index="31"></div>
+                <div class="cell" data-index="32"></div>
+                <div class="cell" data-index="33"></div>
+                <div class="cell" data-index="34"></div>
+                <div class="cell" data-index="35"></div>
+                <div class="cell" data-index="36"></div>
+                <div class="cell" data-index="37"></div>
+                <div class="cell" data-index="38"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="40"></div>
+                <div class="cell" data-index="41"></div>
+                <div class="cell" data-index="42"></div>
+                <div class="cell" data-index="43"></div>
+                <div class="cell" data-index="44"></div>
+                <div class="cell" data-index="45"></div>
+                <div class="cell" data-index="46"></div>
+                <div class="cell" data-index="47"></div>
+                <div class="cell" data-index="48"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="50"></div>
+                <div class="cell" data-index="51"></div>
+                <div class="cell" data-index="52"></div>
+                <div class="cell" data-index="53"></div>
+                <div class="cell" data-index="54"></div>
+                <div class="cell" data-index="55"></div>
+                <div class="cell" data-index="56"></div>
+                <div class="cell" data-index="57"></div>
+                <div class="cell" data-index="58"></div>
+            </div>
+
+
+            <div class="grid">
+                <div class="cell" data-index="60"></div>
+                <div class="cell" data-index="61"></div>
+                <div class="cell" data-index="62"></div>
+                <div class="cell" data-index="63"></div>
+                <div class="cell" data-index="64"></div>
+                <div class="cell" data-index="65"></div>
+                <div class="cell" data-index="66"></div>
+                <div class="cell" data-index="67"></div>
+                <div class="cell" data-index="68"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="70"></div>
+                <div class="cell" data-index="71"></div>
+                <div class="cell" data-index="72"></div>
+                <div class="cell" data-index="73"></div>
+                <div class="cell" data-index="74"></div>
+                <div class="cell" data-index="75"></div>
+                <div class="cell" data-index="76"></div>
+                <div class="cell" data-index="77"></div>
+                <div class="cell" data-index="78"></div>
+            </div>
+            <div class="grid">
+                <div class="cell" data-index="80"></div>
+                <div class="cell" data-index="81"></div>
+                <div class="cell" data-index="82"></div>
+                <div class="cell" data-index="83"></div>
+                <div class="cell" data-index="84"></div>
+                <div class="cell" data-index="85"></div>
+                <div class="cell" data-index="86"></div>
+                <div class="cell" data-index="87"></div>
+                <div class="cell" data-index="88"></div>
+            </div>
+        </div>
+
+    
     </div>
 
     <script src="script.js"></script>
