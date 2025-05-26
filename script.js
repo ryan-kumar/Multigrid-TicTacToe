@@ -2,6 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let showing = true;
 let p1 = true;
+let gridex = 0;
+const loc = ["Any", 
+    "the Top-Left", "the Top-Middle", "the Top-Right", 
+    "the Middle-Left", "the Middle-Middle", "the Middle-Right", 
+    "the Bottom-Left", "the Bottom-Middle", "the Bottom-Right"];
+ActiveGridMessage(gridex);
+
+
+function ActiveGridMessage(grid) {
+    
+    let message =  `Place your Symbol in ${loc[grid]} Grid!`;
+    const prompt = document.getElementById("Direction");
+    prompt.textContent = message;
+}
 
 window.dropdown = function() {
     let info = document.getElementById("instructions");

@@ -1,5 +1,19 @@
-.heading {
-    text-align: right;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  transform: scale(0.9);
+}
+.container {
+    
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+}
+.dir {
+    text-align: center;
 }
 .openinfo{
     text-align: center;
@@ -12,29 +26,25 @@
     font-size: large;
 }
 .inforightbar {
-    width: 20%;
-    position: relative;
-    right: 2%;
+    
+    width: 15vw;
+    height: 80vh;
+
 }
 .infosidebar {
-    position: relative;
-    width: 20%;
-    left: 10%
+   
+    width: 15vw;
+    height: 80vh;
+
 }
 
-.body {
-    display: flex;
-    transform: scale(0.8)
-}
 
 .board {
     display: grid;
     grid-template-columns: repeat(3, 300px);
-    gap: 20px;
+    width: 60vw;
+    height: 80vh;
     justify-content: center;
-    position: relative;
-    left: 2.5%
-
 }
 
 .grid {
