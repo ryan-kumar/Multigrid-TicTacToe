@@ -22,12 +22,13 @@ function CellClick(cell) {
     if (p1 && !cell.classList.contains("ptwo")) {
         cell.classList.remove("visible");
         cell.classList.add("pone");
+        cell.textContent = 'X';
         p1 = false;
     } else if (!p1 && !cell.classList.contains("pone")) {
         cell.classList.remove("visible");
-        cell.classList.remove("pone");
         cell.classList.add("ptwo");
-        p1 = true
+        cell.textContent = 'O';
+        p1 = true;
     }
 }
 
