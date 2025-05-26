@@ -1,5 +1,5 @@
 .heading {
-    text-align: center;
+    text-align: right;
 }
 .openinfo{
     text-align: center;
@@ -8,13 +8,19 @@
     display: none;
 }
 .visible {
-    display: block;
     background-color: aliceblue;
+    font-size: large;
+}
+.infosidebar {
+    position: relative;
+    width: 20%;
+    left: 28%; 
+}
+.leftbar {
+    position: relative;
 }
 .body {
-    margin-left: 10%;
-    margin-right: 10%;
-    display: block;
+    display: flex;
 }
 
 .board {
@@ -22,7 +28,9 @@
     grid-template-columns: repeat(3, 300px);
     gap: 20px;
     justify-content: center;
-  
+    position: relative;
+    left: 24%;
+
 }
 
 .grid {
@@ -40,6 +48,9 @@
 .cell {
     background-color: white;
 }
-.clicked {
-    background-color: green;
+.pone {
+    background-color: red;
+}
+.ptwo {
+    background-color: blue;
 }

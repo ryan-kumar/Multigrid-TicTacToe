@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
 let showing = true;
+let p1 = true;
 
 window.dropdown = function() {
     let info = document.getElementById("instructions");
@@ -18,9 +19,16 @@ window.dropdown = function() {
 };
 
 function CellClick(cell) {
-    console.log("Cell clicked:", cell.dataset.index);
-    cell.classList.remove("cell");
-    cell.classList.add("clicked");
+    if (p1 && !cell.classList.contains("ptwo")) {
+        cell.classList.remove("visible");
+        cell.classList.add("pone");
+        p1 = false;
+    } else if (!p1 && !cell.classList.contains("pone")) {
+        cell.classList.remove("visible");
+        cell.classList.remove("pone");
+        cell.classList.add("ptwo");
+        p1 = true
+    }
 }
 
 document.querySelector('.board').addEventListener('click', function (event) {
@@ -28,4 +36,6 @@ document.querySelector('.board').addEventListener('click', function (event) {
         CellClick(event.target);
     }
 });
+
+
 });
