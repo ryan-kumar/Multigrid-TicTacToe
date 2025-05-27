@@ -47,6 +47,22 @@ body, html {
     justify-content: center;
 }
 
+.boardX {
+    color: red;
+    font-size: 500px;
+}
+
+.boardO {
+    color: blue;
+    font-size: 500px;
+}
+
+.boardI {
+    color: gray;
+    font-size: 500px;
+}
+
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -59,8 +75,27 @@ body, html {
     background-color: black;
 }
 
+.gridX {
+    color: red;
+    font-size: 100px;
+}
+
+.gridO {
+    color: blue;
+    font-size: 100px;
+}
+
+.gridI {
+    color: gray;
+    font-size: 100px;
+}
+
 .cell {
     background-color: white;
+}
+
+.cell:hover {
+    background-color: rgba(128, 128, 128, 1);
 }
 .pone {
     color: red;
