@@ -1,0 +1,24 @@
+{
+  "name": "multigrid-tictactoe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryan-kumar/Multigrid-TicTacToe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryan-kumar/Multigrid-TicTacToe/issues"
+  },
+  "homepage": "https://github.com/ryan-kumar/Multigrid-TicTacToe#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  }
+}
