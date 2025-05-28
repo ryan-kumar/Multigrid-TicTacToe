@@ -1,3 +1,5 @@
+import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm';
+
 document.addEventListener("DOMContentLoaded", function () {
 
 let showing = true;
@@ -11,6 +13,20 @@ let wins = ["0", "0", "0",
             "0", "0", "0", 
             "0", "0", "0"];
 ActiveGridMessage(gridex);
+TestCall();
+
+function TestCall() {
+    axios.get('http://localhost:3500/')
+    .then(response => {
+        const responseData = response.data;
+        console.log(responseData);  
+        document.getElementById("rb").innerHTML = `<b>${responseData}</b>`;
+
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
 
 
 function ActiveGridMessage(grid) {
