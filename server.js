@@ -1,16 +1,48 @@
 const express = require('express');
 const {createServer} = require('node:http');
+const { join } = require('node:path');
+const {Server} = require('socket.io');
 
 const PORT = 3500;
 const app = express();
+
 const server = createServer(app);
-const cors = require('cors');
+const io = new Server(server);
+const lobbies = new Object();
 
-app.use(cors());    
 
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, 'index.html'));
+});
 
-app.get('/', (request, response) => {
-    response.send("Hello from the server!");
+app.get('/css', (req, res) => {
+  res.sendFile(join(__dirname, 'style.css'));
+});
+
+app.get('/script', (req, res) => {
+  res.sendFile(join(__dirname, 'script.js'));
+});
+
+app.get('/test', (req, res) => {
+  res.send("hello!");
+});
+
+io.on('connection', (socket) => {
+
+    socket.on('create-lobby', (lobby) => {
+        if (lobby in lobbies) {
+            socket.emit("create-status", "failed");
+        } else {
+            lobbies[lobby] = "";
+            socket.emit("create-status", "success");
+        }
+    });
+
+     socket.on('mark-index', ({index, lobby}) => {
+        console.log('The player marked index: ' + index + ' at lobby: '+ lobby);
+        lobbies[lobby] = index;
+        socket.emit("move-recieved", true)
+    });
 });
 
 server.listen(PORT, () => {

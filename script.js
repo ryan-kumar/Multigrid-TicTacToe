@@ -1,7 +1,10 @@
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm';
 
+const socket = io();
 document.addEventListener("DOMContentLoaded", function () {
-
+let gamemode = "";
+let lobby = "";
+StartScreen();
 let showing = true;
 let p1 = true;
 let gridex = "9";
@@ -13,10 +16,53 @@ let wins = ["0", "0", "0",
             "0", "0", "0", 
             "0", "0", "0"];
 ActiveGridMessage(gridex);
-TestCall();
+
+async function CreateLobby() {
+    let status = "failed";
+    let tries = 0;
+    while (status === "failed" && tries < 15) {
+        lobby = Math.random().toString(36).substring(2, 10).toUpperCase();
+        status = await AttemptLobbyCreate(lobby);
+        tries += 1;
+    }
+    console.log(`New lobby at ${lobby}, tries: ${tries}, creation: ${status}`);
+}
+
+function AttemptLobbyCreate(lobbycode) {
+    return new Promise((resolve) => {
+    socket.emit("create-lobby", lobbycode);
+    socket.once("create-status", (response) => {
+      resolve(response); 
+    });
+  });
+}
+
+function StartScreen() {
+    const gameplay = document.getElementById("gameplay");
+    gameplay.classList.add("info");
+    
+    const ss = document.getElementById("startscreen");
+    ss.classList.remove("info");
+    ss.classList.add("ss");
+}
+window.Mode = function(mode) {
+    console.log(mode);  
+    gamemode = mode;
+    if (gamemode === "Online") {
+        CreateLobby();
+    }
+
+    const ss = document.getElementById("startscreen");
+    ss.classList.add("info");
+    ss.classList.remove("ss");
+
+    const gameplay = document.getElementById("gameplay");
+    gameplay.classList.remove("info");
+}
+
 
 function TestCall() {
-    axios.get('http://localhost:3500/')
+    axios.get('http://localhost:3500/test')
     .then(response => {
         const responseData = response.data;
         console.log(responseData);  
@@ -54,9 +100,10 @@ window.dropdown = function() {
 function CellClick(cell) {
     let index = cell.dataset.index;
     if (wins[index[0]] != "0" || (gridex != "9" && index[0] != gridex)) {
-        console.log("This is getting hit");
         return;
     }
+    console.log(`Attempting to send over ${index} and ${lobby}`)
+    socket.emit("mark-index", {index, lobby});
      if (p1 && !cell.classList.contains("ptwo")) {
         cell.classList.remove("visible");
         cell.classList.add("pone");

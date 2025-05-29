@@ -2,8 +2,18 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: scale(0.9);
 }
+.ss{
+    border-style: solid;
+    width: 60vw;
+    height:60vh;    
+  
+}
+
 .container {
     
     display: flex;
@@ -35,6 +45,8 @@ body, html {
    
     width: 15vw;
     height: 80vh;
+    position: relative;
+    left: 28px;
 
 }
 

@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://localhost:3500/css">
     <link rel="icon" type="image/x-icon" href="https://epicureanusa.com/cdn/shop/files/X-Pieces_1194x.jpg?v=1714675871">
     <title>Ultimate Tic-Tac-Toe</title>
 </head>
 <body>
+    <div id="page" class="page">
+    <div id="startscreen" class="info">
+        <p><b>Welcome to Ultimate Tic-Tac-Toe!</b> <br/> 
+            How do you want to play:
+            <ol>
+                <li onclick="Mode('Local')">Locally</li>
+                <li  onclick="Mode('Online')">Online</li>
+                <li  onclick="Mode('Computer')">vs Computer (Coming Soon!)</li>
+            </ol>
+        </p>
+        
+    </div>
+    <div id="gameplay">
     <h1 id="Direction" class="dir"></h1>
     <div class="container">
         <div id="rb" class="inforightbar">
@@ -125,7 +138,9 @@
         <p>(click heading to dismiss)</p>
         </div>
     </div>
-
-    <script type="module" src="script.js"></script>
+    </div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script type="module" src="http://localhost:3500/script"></script>
 </body>
 </html>
