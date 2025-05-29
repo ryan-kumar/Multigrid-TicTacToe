@@ -38,10 +38,15 @@ io.on('connection', (socket) => {
         }
     });
 
-     socket.on('mark-index', ({index, lobby}) => {
+    socket.on('mark-index', ({index, lobby}) => {
         console.log('The player marked index: ' + index + ' at lobby: '+ lobby);
         lobbies[lobby] = index;
         socket.emit("move-recieved", true)
+    });
+
+    socket.on('game-over', (lobby) => {
+        // free up the lobby code when the game is done
+        delete lobbies[lobby];
     });
 });
 
