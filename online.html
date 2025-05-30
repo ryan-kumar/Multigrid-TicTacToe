@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3500/css">
+    <link rel="icon" type="image/x-icon" href="https://epicureanusa.com/cdn/shop/files/X-Pieces_1194x.jpg?v=1714675871">
+    <title>Ultimate Tic-Tac-Toe</title>
+</head>
+<body>
+ <div id="onlinescreen" class="ss">
+        <h2>Play Online w/ a Friend</h2>
+        <p onclick="CreateLobby()">Click here to generate a lobbycode:</p>
+        <div id="code"></div>
+
+       <form id="lobbyForm" action="#" onsubmit="HandleOnline();return false">
+        <label for="lobbyCode">Enter Lobby Code:</label>
+        <input type="text" id="lobbyCode" name="lobbyCode">
+        <button type="submit">Join</button>
+        </form>
+        <p id="message"></p>
+</div>
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script type="module" src="http://localhost:3500/script"></script>
+</body>
+</html>

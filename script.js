@@ -2,12 +2,8 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm';
 
 const socket = io();
 document.addEventListener("DOMContentLoaded", function () {
-let gamemode = "";
-let lobby = "";
-StartScreen();
-let showing = true;
-let p1 = true;
-let gridex = "9";
+let gamemode = ""; let lobby = "";
+let showing = true; let p1 = true; let gridex = "9";
 const loc = [ 
     "the Top-Left", "the Top-Middle", "the Top-Right", 
     "the Middle-Left", "the Middle-Middle", "the Middle-Right", 
@@ -15,9 +11,9 @@ const loc = [
 let wins = ["0", "0", "0", 
             "0", "0", "0", 
             "0", "0", "0"];
-ActiveGridMessage(gridex);
 
-async function CreateLobby() {
+
+window.CreateLobby = async function() {
     let status = "failed";
     let tries = 0;
     while (status === "failed" && tries < 15) {
@@ -25,6 +21,7 @@ async function CreateLobby() {
         status = await AttemptLobbyCreate(lobby);
         tries += 1;
     }
+    document.getElementById("code").innerText = lobby;
     console.log(`New lobby at ${lobby}, tries: ${tries}, creation: ${status}`);
 }
 
@@ -36,42 +33,19 @@ function AttemptLobbyCreate(lobbycode) {
     });
   });
 }
+window.HandleOnline = function() {
+   const code = document.getElementById('lobbyCode').value;
+   
 
-function StartScreen() {
-    const gameplay = document.getElementById("gameplay");
-    gameplay.classList.add("info");
-    
-    const ss = document.getElementById("startscreen");
-    ss.classList.remove("info");
-    ss.classList.add("ss");
 }
+
 window.Mode = function(mode) {
-    console.log(mode);  
+    // Perform page routing to setup the game as needed
     gamemode = mode;
     if (gamemode === "Online") {
-        CreateLobby();
+        window.location.href =  "http://localhost:3500/online";
+        
     }
-
-    const ss = document.getElementById("startscreen");
-    ss.classList.add("info");
-    ss.classList.remove("ss");
-
-    const gameplay = document.getElementById("gameplay");
-    gameplay.classList.remove("info");
-}
-
-
-function TestCall() {
-    axios.get('http://localhost:3500/test')
-    .then(response => {
-        const responseData = response.data;
-        console.log(responseData);  
-        document.getElementById("rb").innerHTML = `<b>${responseData}</b>`;
-
-    })
-    .catch(error => {
-        console.log(error);
-    });
 }
 
 

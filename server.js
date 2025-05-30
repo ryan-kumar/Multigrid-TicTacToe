@@ -11,9 +11,19 @@ const io = new Server(server);
 const lobbies = new Object();
 
 
-app.get('/', (req, res) => {
+app.get('/index', (req, res) => {
   res.sendFile(join(__dirname, 'index.html'));
 });
+
+app.get('/online', (req, res) => {
+  res.sendFile(join(__dirname, 'online.html'));
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, 'select.html'));
+});
+
+
 
 app.get('/css', (req, res) => {
   res.sendFile(join(__dirname, 'style.css'));
@@ -38,6 +48,14 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('join-lobby', (lobby) => {
+        if (lobby in lobbies) {
+            socket.emit("create-status", "success");
+        } else {
+            socket.emit("create-status", "failed");
+        }
+    });
+
     socket.on('mark-index', ({index, lobby}) => {
         console.log('The player marked index: ' + index + ' at lobby: '+ lobby);
         lobbies[lobby] = index;
@@ -45,7 +63,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('game-over', (lobby) => {
-        // free up the lobby code when the game is done
+        // free up the lobby object when the game is done
         delete lobbies[lobby];
     });
 });
